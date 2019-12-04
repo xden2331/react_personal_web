@@ -1,0 +1,106 @@
+$bg-size: cover;
+$bg-url: "../statics/image/bg.jpg";
+$bg: no-repeat center right fixed url($bg-url);
+
+.jumbotron {
+  background: $bg;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+
+  -webkit-background-size: $bg-size;
+  -moz-background-size: $bg-size;
+  -o-background-size: $bg-size;
+  background-size: $bg-size;
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{$bg-url}', sizingMethod='scale')";
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{$bg-url}', sizingMethod='scale');
+
+  margin-bottom: 0px;
+  padding: 0px;
+  height: 100vh;
+
+  .overlay {
+    background-color: #22a39f;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    opacity: 0.75;
+    filter: alpha(opacity=75);
+    z-index: 2;
+    height: 100vh;
+  }
+
+  .container {
+    position: relative;
+    z-index: 4;
+    text-align: center;
+    top: 28%;
+
+    h1 {
+      font-weight: 700;
+    }
+
+    * {
+      color: #ffffff;
+      text-align: center;
+    }
+  }
+
+  .scroll-down {
+    height: 80px;
+    width: 110px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    background-color: #222222;
+    z-index: 6;
+    font-size: 30px;
+    text-align: center;
+
+    .fas {
+      color: #ffffff;
+      padding-top: 20px;
+      animation-name: updown;
+      animation-duration: 1.2s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      animation-timing-function: ease;
+    }
+  }
+}
+
+@keyframes updown {
+  0% {
+    padding-top: 20px;
+  }
+
+  50% {
+    padding-top: 30px;
+  }
+
+  100% {
+    padding-top: 20px;
+  }
+}
+
+#profile {
+  height: 100vh;
+}
+
+.background-vanilla-blue {
+  background-color: #dff6f0;
+}
+
+.background-ocean-blue {
+  background-color: #46b3e6;
+}
+
+hr {
+  width: 50%;
+  border-color: #ffffff9c;
+}
