@@ -74,6 +74,12 @@ $bg: no-repeat center right fixed url($bg-url);
   }
 }
 
+.nav{
+  position: fixed;
+  right: 5%;
+  top:70px;
+}
+
 @keyframes updown {
   0% {
     padding-top: 20px;
@@ -88,19 +94,58 @@ $bg: no-repeat center right fixed url($bg-url);
   }
 }
 
-#profile {
-  height: 100vh;
+.background-white {
+  background-color: #ffffff;
 }
 
-.background-vanilla-blue {
-  background-color: #dff6f0;
+.background-grey {
+  background-color: #434242;
 }
 
-.background-ocean-blue {
-  background-color: #46b3e6;
+.background-wheat {
+  background-color: #F3EFE1;
 }
 
 hr {
-  width: 50%;
-  border-color: #ffffff9c;
+  border-color: #727878;
+}
+
+h2,
+h3 {
+  font-weight: 300;
+  color: #22a39f;
+}
+
+h2 {
+  font-size: 54px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 27px;
+}
+
+p.lead {
+  text-align: center;
+}
+
+body {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 15px;
+  font-weight: 100;
+  line-height: 1.64;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.container {
+  max-width: 1280px;
+  padding: 60px 180px;
+}
+
+p {
+  font-size: 13px;
 }
