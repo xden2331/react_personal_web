@@ -2,6 +2,37 @@ $bg-size: cover;
 $bg-url: "../statics/image/bg.jpg";
 $bg: no-repeat center right fixed url($bg-url);
 
+h1,
+h4 {
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+#experiences {
+  .experience {
+    margin: 20px 0;
+
+    > div {
+      padding: 0;
+    }
+
+    p > strong {
+      color: #434242;
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    span > * {
+      color: #22a39f;
+      margin: 0 5px;
+    }
+  }
+}
+
 .jumbotron {
   background: $bg;
   -webkit-background-size: 100%;
@@ -40,10 +71,6 @@ $bg: no-repeat center right fixed url($bg-url);
     text-align: center;
     top: 28%;
 
-    h1 {
-      font-weight: 700;
-    }
-
     * {
       color: #ffffff;
       text-align: center;
@@ -74,10 +101,31 @@ $bg: no-repeat center right fixed url($bg-url);
   }
 }
 
-.nav{
-  position: fixed;
+.nav-item {
+  display: block;
+  background-color: #222222;
+  text-align: center;
+}
+
+a {
+  color: #22a39f;
+  text-decoration: underline;
+}
+
+.nav {
   right: 5%;
-  top:70px;
+
+  > li {
+    a {
+      width: 110px;
+      height: 80px;
+      font-weight: 300;
+      color: #ffffff;
+      text-align: center;
+      padding-top: 25px;
+      display: block;
+    }
+  }
 }
 
 @keyframes updown {
@@ -103,11 +151,13 @@ $bg: no-repeat center right fixed url($bg-url);
 }
 
 .background-wheat {
-  background-color: #F3EFE1;
+  background-color: #f3efe1;
 }
 
 hr {
   border-color: #727878;
+  opacity: 0.75;
+  margin: 50px 0;
 }
 
 h2,
@@ -123,6 +173,7 @@ h2 {
 
 h3 {
   font-size: 27px;
+  margin: 20px 0px;
 }
 
 p.lead {
@@ -134,6 +185,7 @@ body {
   font-size: 15px;
   font-weight: 100;
   line-height: 1.64;
+  color: #434242;
 }
 
 html,
@@ -142,10 +194,6 @@ body {
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1170px;
   padding: 60px 180px;
-}
-
-p {
-  font-size: 13px;
 }
