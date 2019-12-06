@@ -90,9 +90,13 @@ h4 {
   text-align: center;
 }
 
+.active {
+  background-color: #22a39f;
+  transition: 0.2s;
+}
+
 a {
   color: #22a39f;
-  text-decoration: underline;
 }
 
 .nav {
@@ -133,7 +137,7 @@ a {
 
 hr {
   border-color: #727878;
-  opacity: 0.75;
+  opacity: 0.5;
   margin: 50px 0;
 }
 
@@ -162,17 +166,85 @@ body {
   font-size: 15px;
   font-weight: 100;
   line-height: 1.64;
-  color: #434242;
+  background-color: #434242;
 }
 
 html,
 body {
   height: 100%;
+  background-color: #434242;
 }
 
 .container {
   max-width: 1170px;
   padding: 60px 180px;
+}
+
+#abilities .ability .ability-score {
+  color: #22a39f;
+}
+#abilities .ability:hover {
+  background-color: #f2f2f2;
+}
+#abilities .ability:hover .ability-score .fa-star {
+  transition: 0.3s;
+  margin: 0 1px;
+}
+
+@keyframes hrAnimation {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes contentAnimation {
+  from {
+    opacity: 0;
+    right: -500px;
+  }
+  to {
+    opacity: 1;
+    right: 75px;
+  }
+}
+.project .project-card {
+  transition: 0.2s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #22a39f;
+  opacity: 0;
+  padding: 20px 30px;
+}
+.project .project-card .content {
+  position: absolute;
+}
+.project .project-card:hover {
+  opacity: 0.9;
+}
+.project .project-card:hover * {
+  opacity: 1;
+  color: #ffffff;
+}
+.project .project-card:hover hr {
+  margin: 0;
+  margin-bottom: 20px;
+  border: 1px solid white;
+  animation-name: hrAnimation;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+}
+.project .project-card:hover .content {
+  animation-name: contentAnimation;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
 }
 
 /*# sourceMappingURL=home.css.map */

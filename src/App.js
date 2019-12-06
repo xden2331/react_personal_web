@@ -1,32 +1,108 @@
 import React from "react";
 import { Element, scroller } from "react-scroll";
+import info from "./statics/information";
 
 import "./App.css";
 import "./stylesheets/home.css";
+
+function Skill(props) {
+  const scoreVal = props.score;
+  const title = props.title;
+  let scores = [];
+  for (var i = 0; i < 5; ++i) {
+    scores.push(
+      i < scoreVal ? (
+        <i className='fas fa-star'></i>
+      ) : (
+        <i className='far fa-star'></i>
+      )
+    );
+  }
+
+  return (
+    <div className='d-flex justify-content-between ability p-1'>
+      <span className='ability-title'>{title}</span>
+      <span className='ability-score'>{scores}</span>
+    </div>
+  );
+}
+
+function Project(props) {
+  const img = props.img;
+  const title = props.title;
+  const description = props.description;
+  const tags = props.tags;
+  return (
+    <div className='col-12 col-md-6 p-0'>
+      <a
+        href='https://github.com/xden2331/richard-yelpcamp'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        <div className='project'>
+          <img src={img} alt='project screenshot' className='h-100 w-100' />
+          <span className='project-card'>
+            <h3>{title}</h3>
+            <hr />
+            <div className='content'>
+              <p>{description}</p>
+
+              <h6>Tags:</h6>
+              <p>{tags.join(", ")}</p>
+            </div>
+          </span>
+        </div>
+      </a>
+    </div>
+  );
+}
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onJumbotronScroll = this.onJumbotronScroll.bind(this);
+    this.onScroll = this.onScroll.bind(this);
     this.state = {
       navStyle: {
         position: "absolute",
         top: `${window.innerHeight}px`
-      }
+      },
+      currentSection: 0
     };
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.onJumbotronScroll, true);
+    window.addEventListener("scroll", this.onScroll, true);
+    var profileTop = document.getElementById("profile").offsetTop;
+    var expTop = document.getElementById("experiences").offsetTop;
+    var abTop = document.getElementById("abilities").offsetTop;
+    var projectTop = document.getElementById("projects").offsetTop;
+    this.setState({
+      sectionOffsets: [profileTop, expTop, abTop, projectTop]
+    });
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onJumbotronScroll);
+    window.removeEventListener("scroll", this.onScroll);
   }
 
-  onJumbotronScroll() {
+  updateNavBar(scrollY) {
+    const offsets = this.state.sectionOffsets;
+    for (var i = 0; i < offsets.length - 1; ++i) {
+      const windowOffset = scrollY + document.body.offsetHeight;
+      const offsetOne = offsets[i];
+      const offsetTwo = offsets[i + 1];
+      if (windowOffset > offsetOne && windowOffset < offsetTwo) {
+        this.setState({ currentSection: i + 1 });
+        return;
+      }
+    }
+    this.setState({ currentSection: offsets.length });
+  }
+
+  onScroll() {
     const scrollY = window.scrollY;
+    this.updateNavBar(scrollY);
     if (scrollY > window.innerHeight - 70) {
       this.setState({
         navStyle: {
@@ -128,7 +204,7 @@ class App extends React.Component {
           </div>
         </Element>
 
-        <Element name='experience-section'>
+        <Element name='experiences-section'>
           <div className='background-wheat' id='experiences'>
             <div className='container'>
               <h2>Experiences</h2>
@@ -161,7 +237,7 @@ class App extends React.Component {
                       irure cupidatat.
                     </p>
                     <span>
-                      <i class='fas fa-map-marker-alt' />
+                      <i className='fas fa-map-marker-alt' />
                       Sydney, Australia
                     </span>
                   </div>
@@ -186,7 +262,7 @@ class App extends React.Component {
                       work.
                     </p>
                     <span>
-                      <i class='fas fa-map-marker-alt' />
+                      <i className='fas fa-map-marker-alt' />
                       Sydney, Australia
                     </span>
                   </div>
@@ -214,11 +290,15 @@ class App extends React.Component {
                       laboris ut nostrud voluptate commodo. Exercitation velit
                       sunt et ad amet.
                     </p>
-                    <span className="border-right pr-3 mr-3">
-                      <i class='fas fa-map-marker-alt' />
+                    <span className='border-right pr-3 mr-3'>
+                      <i className='fas fa-map-marker-alt' />
                       Sydney, Australia
                     </span>
-                    <a href="https://www.pulpyou.com/" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href='https://www.pulpyou.com/'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
                       Pulp you
                     </a>
                   </div>
@@ -228,23 +308,135 @@ class App extends React.Component {
           </div>
         </Element>
 
-        <Element name="ability-section">
+        <Element name='abilities-section'>
           <div className='background-white' id='abilities'>
             <div className='container'>
               <h2>Abilities</h2>
               <div className='text-center'>
                 <p className='mb-0 lead'>
-                  Velit tempor commodo nisi reprehenderit adipisicing incididunt ut.
+                  Velit tempor commodo nisi reprehenderit adipisicing incididunt
+                  ut.
                 </p>
                 <footer className='blockquote-footer'>Socrates</footer>
               </div>
               <hr />
 
               <h3>Skills</h3>
-              <div className='skills row'>
-                <div className='col-6'>Left col</div>
-                <div className='col-6'>Right col</div>
+              <div className='skills row mb-5'>
+                <div className='col-12 col-md-6'>
+                  {info.skillsOne.map(item => {
+                    return (
+                      <Skill
+                        title={item.title}
+                        score={item.score}
+                        key={item.title}
+                      />
+                    );
+                  })}
+                </div>
+                <div className='col-12 col-md-6'>
+                  {info.skillsTwo.map(item => {
+                    return (
+                      <Skill
+                        title={item.title}
+                        score={item.score}
+                        key={item.title}
+                      />
+                    );
+                  })}
+                </div>
               </div>
+
+              <div className='font-weight-light font-italic text-center'>
+                This project is built on ReactJS and Bootstrap. Interested?
+                check on Github!
+              </div>
+
+              <div className='w-100 d-flex '>
+                <a
+                  className='btn btn-primary text-white mx-auto text-decoration-none'
+                  href='https://github.com/xden2331/react_personal_web'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <span className='mr-1'>
+                    <i className='fab fa-github'></i>
+                  </span>
+                  Github
+                </a>
+              </div>
+
+              <hr />
+
+              <h3>Languages</h3>
+              <div className='skills row mb-5'>
+                <div className='col-12 col-md-6'>
+                  {info.languages.map(item => {
+                    return (
+                      <Skill
+                        title={item.title}
+                        score={item.score}
+                        key={item.title}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+
+              <hr />
+
+              <h3>Tools</h3>
+              <div className='skills row mb-5'>
+                <div className='col-12 col-md-6'>
+                  {info.tools.map(item => {
+                    return (
+                      <Skill
+                        title={item.title}
+                        score={item.score}
+                        key={item.title}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Element>
+
+        <Element name='projects-section'>
+          <div className='background-wheat' id='projects'>
+            <div className='container'>
+              <h2>Projects</h2>
+              <div className='text-center'>
+                <p className='mb-0 lead'>
+                  Velit tempor commodo nisi reprehenderit adipisicing incididunt
+                  ut.
+                </p>
+                <footer className='blockquote-footer'>Socrates</footer>
+              </div>
+              <hr />
+
+              <div className='row'>
+                {info.projects.map(item => {
+                  return (
+                    <Project
+                      img={item.img}
+                      title={item.title}
+                      tags={item.tags}
+                      description={item.description}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </Element>
+
+        <Element name='contact-section'>
+          <div id="contact">
+            <div className='container'>
+              <h2 className='text-white'>Contact</h2>
+              <p className='lead'>Cupidatat nostrud amet sint irure in minim.</p>
             </div>
           </div>
         </Element>
@@ -254,6 +446,7 @@ class App extends React.Component {
           <li className='scroll-down nav-item'>
             <a
               href='#profile'
+              className={this.state.currentSection === 1 ? " active" : ""}
               onClick={() => scrollToElement("profile-section")}
             >
               Profile
@@ -263,9 +456,30 @@ class App extends React.Component {
           <li className='scroll-down nav-item'>
             <a
               href='#experience'
+              className={this.state.currentSection === 2 ? " active" : ""}
               onClick={() => scrollToElement("experiences-section")}
             >
               Experiences
+            </a>
+          </li>
+
+          <li className='scroll-down nav-item'>
+            <a
+              href='#abilities'
+              className={this.state.currentSection === 3 ? " active" : ""}
+              onClick={() => scrollToElement("abilities-section")}
+            >
+              Abilities
+            </a>
+          </li>
+
+          <li className='scroll-down nav-item'>
+            <a
+              href='#projects'
+              className={this.state.currentSection === 4 ? " active" : ""}
+              onClick={() => scrollToElement("projects-section")}
+            >
+              Projects
             </a>
           </li>
         </ul>
