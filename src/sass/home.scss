@@ -1,6 +1,7 @@
 $bg-size: cover;
 $bg-url: "../statics/image/bg.jpg";
 $bg: no-repeat center right fixed url($bg-url);
+$primary-color: #22a39f;
 
 h1,
 h4 {
@@ -27,7 +28,7 @@ h4 {
     }
 
     span > * {
-      color: #22a39f;
+      color: $primary-color;
       margin: 0 5px;
     }
   }
@@ -53,7 +54,7 @@ h4 {
   height: 100vh;
 
   .overlay {
-    background-color: #22a39f;
+    background-color: $primary-color;
     position: absolute;
     top: 0px;
     bottom: 0px;
@@ -108,12 +109,12 @@ h4 {
 }
 
 .active {
-  background-color: #22a39f;
+  background-color: $primary-color;
   transition: 0.2s;
 }
 
 a {
-  color: #22a39f;
+  color: $primary-color;
 }
 
 .nav {
@@ -167,7 +168,7 @@ hr {
 h2,
 h3 {
   font-weight: 300;
-  color: #22a39f;
+  color: $primary-color;
 }
 
 h2 {
@@ -206,7 +207,7 @@ body {
 #abilities {
   .ability {
     .ability-score {
-      color: #22a39f;
+      color: $primary-color;
     }
     &:hover {
       background-color: #f2f2f2;
@@ -254,7 +255,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #22a39f;
+    background-color: $primary-color;
     opacity: 0;
     padding: 20px 30px;
 
@@ -285,5 +286,17 @@ body {
         animation-iteration-count: 1;
       }
     }
+  }
+}
+
+#contact {
+  i {
+    font-size: 35px;
+    color: grey;
+    padding: 5px 5px;
+  }
+
+  a {
+    color: grey;
   }
 }

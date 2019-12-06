@@ -8,21 +8,24 @@ import "./stylesheets/home.css";
 function Skill(props) {
   const scoreVal = props.score;
   const title = props.title;
+  const key = props.key;
   let scores = [];
   for (var i = 0; i < 5; ++i) {
     scores.push(
       i < scoreVal ? (
-        <i className='fas fa-star'></i>
+        <i className='fas fa-star' key={key}></i>
       ) : (
-        <i className='far fa-star'></i>
+        <i className='far fa-star' key={key}></i>
       )
     );
   }
 
   return (
-    <div className='d-flex justify-content-between ability p-1'>
-      <span className='ability-title'>{title}</span>
-      <span className='ability-score'>{scores}</span>
+    <div className='col-12 col-md-6'>
+      <div className='d-flex justify-content-between ability p-1'>
+        <span className='ability-title'>{title}</span>
+        <span className='ability-score'>{scores}</span>
+      </div>
     </div>
   );
 }
@@ -323,28 +326,15 @@ class App extends React.Component {
 
               <h3>Skills</h3>
               <div className='skills row mb-5'>
-                <div className='col-12 col-md-6'>
-                  {info.skillsOne.map(item => {
-                    return (
-                      <Skill
-                        title={item.title}
-                        score={item.score}
-                        key={item.title}
-                      />
-                    );
-                  })}
-                </div>
-                <div className='col-12 col-md-6'>
-                  {info.skillsTwo.map(item => {
-                    return (
-                      <Skill
-                        title={item.title}
-                        score={item.score}
-                        key={item.title}
-                      />
-                    );
-                  })}
-                </div>
+                {info.skills.map(item => {
+                  return (
+                    <Skill
+                      title={item.title}
+                      score={item.score}
+                      key={item.title}
+                    />
+                  );
+                })}
               </div>
 
               <div className='font-weight-light font-italic text-center'>
@@ -370,34 +360,30 @@ class App extends React.Component {
 
               <h3>Languages</h3>
               <div className='skills row mb-5'>
-                <div className='col-12 col-md-6'>
-                  {info.languages.map(item => {
-                    return (
-                      <Skill
-                        title={item.title}
-                        score={item.score}
-                        key={item.title}
-                      />
-                    );
-                  })}
-                </div>
+                {info.languages.map(item => {
+                  return (
+                    <Skill
+                      title={item.title}
+                      score={item.score}
+                      key={item.title}
+                    />
+                  );
+                })}
               </div>
 
               <hr />
 
               <h3>Tools</h3>
               <div className='skills row mb-5'>
-                <div className='col-12 col-md-6'>
-                  {info.tools.map(item => {
-                    return (
-                      <Skill
-                        title={item.title}
-                        score={item.score}
-                        key={item.title}
-                      />
-                    );
-                  })}
-                </div>
+                {info.tools.map(item => {
+                  return (
+                    <Skill
+                      title={item.title}
+                      score={item.score}
+                      key={item.title}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -433,13 +419,49 @@ class App extends React.Component {
         </Element>
 
         <Element name='contact-section'>
-          <div id="contact">
+          <div id='contact'>
             <div className='container'>
               <h2 className='text-white'>Contact</h2>
-              <p className='lead'>Cupidatat nostrud amet sint irure in minim.</p>
+              <p className='lead text-light'>
+                Cupidatat nostrud amet sint irure in minim.
+              </p>
+
+              <hr />
+
+              <div className='row justify-content-center'>
+                {info.contacts.map(contact => {
+                  return (
+                    <span>
+                      <i className={contact.iconClass} />
+                      <a
+                        href={contact.url}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        {contact.url}
+                      </a>
+                    </span>
+                  );
+                })}
+              </div>
+
+              <hr />
             </div>
           </div>
         </Element>
+
+        <div className='footer text-light text-center'>
+          <p>
+            Inspired by{" "}
+            <a
+              href='http://www.pascalvangemert.nl/#/profile'
+              rel='noopener noreferrer'
+              target='_blank'
+            >
+              Pascal van Gemert's resume.
+            </a>
+          </p>
+        </div>
 
         {/* Nav bar */}
         <ul className='nav flex-column' style={this.state.navStyle}>
@@ -480,6 +502,16 @@ class App extends React.Component {
               onClick={() => scrollToElement("projects-section")}
             >
               Projects
+            </a>
+          </li>
+
+          <li className='scroll-down nav-item'>
+            <a
+              href='#contact'
+              className={this.state.currentSection === 5 ? " active" : ""}
+              onClick={() => scrollToElement("contact-section")}
+            >
+              Contact
             </a>
           </li>
         </ul>

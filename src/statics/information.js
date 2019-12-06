@@ -1,5 +1,5 @@
 export default {
-  skillsOne: [
+  skills: [
     { title: "Bootstrap Framework", score: 5 },
     { title: "JSON", score: 5 },
     { title: "XML", score: 5 },
@@ -8,9 +8,7 @@ export default {
     { title: "Command Line Interface", score: 5 },
     { title: "Java", score: 5 },
     { title: "Object Orientated Programming", score: 5 },
-    { title: "MVC Pattern", score: 5 }
-  ],
-  skillsTwo: [
+    { title: "MVC Pattern", score: 5 },
     { title: "Flutter Framework", score: 5 },
     { title: "React JS", score: 4 },
     { title: "SASS / SCSS", score: 4 },
@@ -35,6 +33,13 @@ export default {
       title: "YelpCamp",
       description: "A place for camp lovers to post camp pictures.",
       tags: ["MongoDB", "Express", "Node.JS", "Passport"]
+    }
+  ],
+  contacts: [
+    {
+      title: "LinkedIn",
+      url: "https://www.linkedin.com/in/xing-deng-00a435164/",
+      iconClass: "fab fa-linkedin"
     }
   ]
 };

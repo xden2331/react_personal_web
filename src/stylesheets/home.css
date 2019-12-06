@@ -247,4 +247,13 @@ body {
   animation-iteration-count: 1;
 }
 
+#contact i {
+  font-size: 35px;
+  color: grey;
+  padding: 5px 5px;
+}
+#contact a {
+  color: grey;
+}
+
 /*# sourceMappingURL=home.css.map */
