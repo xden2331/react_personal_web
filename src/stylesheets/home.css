@@ -177,7 +177,12 @@ body {
 
 .container {
   max-width: 1170px;
-  padding: 60px 180px;
+  padding: 60px;
+}
+@media (min-width: 576px) {
+  .container {
+    padding: 60px 180px;
+  }
 }
 
 #abilities .ability .ability-score {

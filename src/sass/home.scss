@@ -2,6 +2,7 @@ $bg-size: cover;
 $bg-url: "../statics/image/bg.jpg";
 $bg: no-repeat center right fixed url($bg-url);
 $primary-color: #22a39f;
+$md-breakpoint: 576px;
 
 h1,
 h4 {
@@ -201,7 +202,11 @@ body {
 
 .container {
   max-width: 1170px;
-  padding: 60px 180px;
+  padding: 60px;
+
+  @media (min-width: $md-breakpoint) {
+    padding: 60px 180px;
+  }
 }
 
 #abilities {
