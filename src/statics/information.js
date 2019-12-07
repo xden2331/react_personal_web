@@ -5,6 +5,7 @@ export default {
     { title: "XML", score: 5 },
     { title: "MongoDB", score: 5 },
     { title: "MySQL", score: 5 },
+    { title: "Flutter", score: 5 },
     { title: "Command Line Interface", score: 5 },
     { title: "Java", score: 5 },
     { title: "Object Orientated Programming", score: 5 },
@@ -15,7 +16,10 @@ export default {
     { title: "JavaScript", score: 4 },
     { title: "Design Pattern", score: 4 },
     { title: "CSS(3)", score: 4 },
-    { title: "HTML(5)", score: 4 }
+    { title: "HTML(5)", score: 4 },
+    { title: "Agile", score: 4 },
+    { title: "Python(3)", score: 3 },
+    { title: "C/C++", score: 3 }
   ],
   languages: [
     { title: "Chinese (Native Speaker)", score: 5 },
@@ -24,8 +28,22 @@ export default {
   tools: [
     { title: "VS Code (2 years)", score: 5 },
     { title: "Mac (3 years)", score: 5 },
+    { title: "Eclipse (4 years)", score: 5 },
     { title: "Git (3 years)", score: 5 },
-    { title: "Figma (3 months)", score: 3 }
+    { title: "Mongo DB", score: 5 },
+    { title: "MySQL/PostgreSQL", score: 5 },
+    { title: "Firebase (Google Clound Service)", score: 4 },
+    { title: "Express", score: 4 },
+    { title: "Chrome", score: 4 },
+    { title: "Figma (3 months)", score: 3 },
+    { title: "Android Studio (3 months)", score: 3 }
+  ],
+  softSkills: [
+    { title: "Positive attitude towards problems", score: 5 },
+    { title: "Secret Keeper", score: 5 },
+    { title: "Proactivity", score: 5 },
+    { title: "Adaption in team", score: 5 },
+    { title: "Can-do attitude", score: 5 }
   ],
   projects: [
     {

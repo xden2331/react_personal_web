@@ -107,7 +107,7 @@ class App extends React.Component {
     const isBottom =
       scrollY + document.body.clientHeight - 150 > offsets[offsets.length - 1];
     if (isBottom) {
-      nextSection = offsets.length-1;
+      nextSection = offsets.length - 1;
     } else {
       for (var i = 0; i < offsets.length - 1; ++i) {
         const offsetOne = offsets[i];
@@ -252,11 +252,11 @@ class App extends React.Component {
                         Master - Information Technology (Major in Software
                         Engineering)
                       </strong>
-                      Veniam laborum elit sunt aliquip sit ad ex consectetur
-                      duis. Id anim laboris fugiat ad irure veniam duis sint
-                      labore anim. Sint pariatur adipisicing voluptate eu irure
-                      ut ex pariatur consequat deserunt veniam. Non id non do
-                      irure cupidatat.
+                      <strong>Currently commencing.</strong> The degree mainly
+                      focuses 3 project management cores with 9 elective units.
+                      I also learned Advanced Data Model (NoSQL and Graph
+                      Database), concepts of mobile computing and system design
+                      pattern and more.
                     </p>
                     <span>
                       <i className='fas fa-map-marker-alt' />
@@ -303,14 +303,11 @@ class App extends React.Component {
                   <div className='col-8'>
                     <p>
                       <strong>Internship - Mobile App MVP Developer</strong>
-                      Proident sint sit officia minim aliquip velit sit laborum
-                      irure. Ex nulla deserunt mollit fugiat eiusmod fugiat
-                      deserunt. Et reprehenderit duis aliqua cillum
-                      reprehenderit id anim eu sunt consectetur do amet irure
-                      eu. Sint commodo veniam excepteur ipsum aliqua elit do eu
-                      enim est. Ex amet ex ad consequat ex dolore cillum aliqua
-                      laboris ut nostrud voluptate commodo. Exercitation velit
-                      sunt et ad amet.
+                      Working as an intern employee, develop and maintain the
+                      Minimal viable product of a live-streaming mobile app,
+                      Idols4Fans, using Flutter, a new Google mobile framework.
+                      The main responsibility is transfering design into
+                      wireframe using Flutter.
                     </p>
                     <span className='border-right pr-3 mr-3'>
                       <i className='fas fa-map-marker-alt' />
@@ -336,10 +333,10 @@ class App extends React.Component {
               <h2>Abilities</h2>
               <div className='text-center'>
                 <p className='mb-0 lead'>
-                  Velit tempor commodo nisi reprehenderit adipisicing incididunt
-                  ut.
+                  The value of life lies not in the length of days, but in the
+                  use we make of them.
                 </p>
-                <footer className='blockquote-footer'>Socrates</footer>
+                <footer className='blockquote-footer'>Montaigne</footer>
               </div>
               <hr />
 
@@ -355,7 +352,7 @@ class App extends React.Component {
                 check on Github!
               </div>
 
-              <div className='w-100 d-flex '>
+              <div className='w-100 d-flex'>
                 <a
                   className='btn btn-primary text-white mx-auto text-decoration-none'
                   href='https://github.com/xden2331/react_personal_web'
@@ -386,6 +383,15 @@ class App extends React.Component {
                   return <Skill title={item.title} score={item.score} />;
                 })}
               </div>
+
+              <hr />
+
+              <h3>Soft Skills</h3>
+              <div className='skills row mb-5'>
+                {info.softSkills.map(item => {
+                  return <Skill title={item.title} score={item.score} />;
+                })}
+              </div>
             </div>
           </div>
         </Element>
@@ -396,10 +402,10 @@ class App extends React.Component {
               <h2>Projects</h2>
               <div className='text-center'>
                 <p className='mb-0 lead'>
-                  Velit tempor commodo nisi reprehenderit adipisicing incididunt
-                  ut.
+                  A man can succeed at almost anything for which he has
+                  unlimited enthusiasm.
                 </p>
-                <footer className='blockquote-footer'>Socrates</footer>
+                <footer className='blockquote-footer'>C.M.Schwab</footer>
               </div>
               <hr />
 
@@ -423,9 +429,7 @@ class App extends React.Component {
           <div id='contact'>
             <div className='container'>
               <h2 className='text-white'>Contact</h2>
-              <p className='lead text-light'>
-                Cupidatat nostrud amet sint irure in minim.
-              </p>
+              <p className='lead text-light'>One man, no man.</p>
 
               <hr />
 
