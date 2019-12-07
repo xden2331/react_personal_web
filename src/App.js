@@ -70,18 +70,27 @@ class App extends React.Component {
         position: "absolute",
         top: `${window.innerHeight}px`
       },
-      currentSection: 0
+      currentSection: 0,
     };
   }
 
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll, true);
-    var profileTop = document.getElementById("profile").offsetTop;
-    var expTop = document.getElementById("experiences").offsetTop;
-    var abTop = document.getElementById("abilities").offsetTop;
-    var projectTop = document.getElementById("projects").offsetTop;
+    const sectionOffsets = [];
+    const sectionIds = [
+      "profile",
+      "experiences",
+      "abilities",
+      "projects",
+      "contact"
+    ];
+
+    for (var i = 0; i < sectionIds.length; ++i) {
+      const id = sectionIds[i];
+      sectionOffsets.push(document.getElementById(id).offsetTop);
+    }
     this.setState({
-      sectionOffsets: [profileTop, expTop, abTop, projectTop]
+      sectionOffsets: sectionOffsets
     });
   }
 
@@ -90,6 +99,7 @@ class App extends React.Component {
   }
 
   updateNavBar(scrollY) {
+    console.log(window.innerHeight);
     const offsets = this.state.sectionOffsets;
     for (var i = 0; i < offsets.length - 1; ++i) {
       const windowOffset = scrollY + document.body.offsetHeight;
@@ -100,7 +110,6 @@ class App extends React.Component {
         return;
       }
     }
-    this.setState({ currentSection: offsets.length });
   }
 
   onScroll() {
@@ -331,7 +340,6 @@ class App extends React.Component {
                     <Skill
                       title={item.title}
                       score={item.score}
-                      key={item.title}
                     />
                   );
                 })}
@@ -365,7 +373,6 @@ class App extends React.Component {
                     <Skill
                       title={item.title}
                       score={item.score}
-                      key={item.title}
                     />
                   );
                 })}
@@ -380,7 +387,6 @@ class App extends React.Component {
                     <Skill
                       title={item.title}
                       score={item.score}
-                      key={item.title}
                     />
                   );
                 })}
