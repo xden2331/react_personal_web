@@ -70,7 +70,7 @@ class App extends React.Component {
         position: "absolute",
         top: `${window.innerHeight}px`
       },
-      currentSection: 0,
+      currentSection: 1
     };
   }
 
@@ -90,7 +90,10 @@ class App extends React.Component {
       sectionOffsets.push(document.getElementById(id).offsetTop);
     }
     this.setState({
-      sectionOffsets: sectionOffsets
+      sectionOffsets: [
+        ...sectionOffsets,
+        document.getElementById("root").clientHeight
+      ]
     });
   }
 
@@ -99,17 +102,24 @@ class App extends React.Component {
   }
 
   updateNavBar(scrollY) {
-    console.log(window.innerHeight);
     const offsets = this.state.sectionOffsets;
-    for (var i = 0; i < offsets.length - 1; ++i) {
-      const windowOffset = scrollY + document.body.offsetHeight;
-      const offsetOne = offsets[i];
-      const offsetTwo = offsets[i + 1];
-      if (windowOffset > offsetOne && windowOffset < offsetTwo) {
-        this.setState({ currentSection: i + 1 });
-        return;
+    var nextSection = 1;
+    const isBottom =
+      scrollY + document.body.clientHeight - 150 > offsets[offsets.length - 1];
+    if (isBottom) {
+      nextSection = offsets.length-1;
+    } else {
+      for (var i = 0; i < offsets.length - 1; ++i) {
+        const offsetOne = offsets[i];
+        const offsetTwo = offsets[i + 1];
+        const lowerBound = offsetTwo - (offsetTwo - offsetOne) / 20;
+        if (scrollY > lowerBound) {
+          nextSection = i + 2;
+        }
       }
     }
+
+    this.setState({ currentSection: nextSection });
   }
 
   onScroll() {
@@ -336,12 +346,7 @@ class App extends React.Component {
               <h3>Skills</h3>
               <div className='skills row mb-5'>
                 {info.skills.map(item => {
-                  return (
-                    <Skill
-                      title={item.title}
-                      score={item.score}
-                    />
-                  );
+                  return <Skill title={item.title} score={item.score} />;
                 })}
               </div>
 
@@ -369,12 +374,7 @@ class App extends React.Component {
               <h3>Languages</h3>
               <div className='skills row mb-5'>
                 {info.languages.map(item => {
-                  return (
-                    <Skill
-                      title={item.title}
-                      score={item.score}
-                    />
-                  );
+                  return <Skill title={item.title} score={item.score} />;
                 })}
               </div>
 
@@ -383,12 +383,7 @@ class App extends React.Component {
               <h3>Tools</h3>
               <div className='skills row mb-5'>
                 {info.tools.map(item => {
-                  return (
-                    <Skill
-                      title={item.title}
-                      score={item.score}
-                    />
-                  );
+                  return <Skill title={item.title} score={item.score} />;
                 })}
               </div>
             </div>
