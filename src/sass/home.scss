@@ -2,6 +2,7 @@ $bg-size: cover;
 $bg-url: "../statics/image/bg.jpg";
 $bg: no-repeat center right fixed url($bg-url);
 $primary-color: #22a39f;
+$primary-color-hover: #1c8784;
 $md-breakpoint: 576px;
 
 h1,
@@ -197,6 +198,11 @@ body {
 .btn-primary {
   background-color: $primary-color;
   border-color: $primary-color;
+
+  &:hover {
+    background-color: $primary-color-hover;
+    border-color: $primary-color-hover;
+  }
 }
 
 html,

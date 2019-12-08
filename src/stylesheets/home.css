@@ -173,6 +173,10 @@ body {
   background-color: #22a39f;
   border-color: #22a39f;
 }
+.btn-primary:hover {
+  background-color: #1c8784;
+  border-color: #1c8784;
+}
 
 html,
 body {

@@ -209,17 +209,32 @@ class App extends React.Component {
                   <strong>Location:</strong>
                   <p>Sydney</p>
                   <br />
-                  <a
-                    className='btn btn-primary text-white'
-                    href='https://www.linkedin.com/in/xing-deng-00a435164/'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    <span className='mr-1'>
-                      <i className='fab fa-linkedin'></i>
-                    </span>
-                    LinkedIn
-                  </a>
+
+                  <div className='row d-flex justify-content-between'>
+                    <a
+                      className='btn btn-primary text-white'
+                      href='https://www.linkedin.com/in/xing-deng-00a435164/'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <span className='mr-1'>
+                        <i className='fab fa-linkedin'></i>
+                      </span>
+                      LinkedIn
+                    </a>
+
+                    <a
+                      className='btn btn-primary text-white'
+                      href='https://github.com/xden2331'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <span className='mr-1'>
+                        <i className='fab fa-github'></i>
+                      </span>
+                      Github Profile
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
