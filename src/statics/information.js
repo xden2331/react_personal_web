@@ -19,6 +19,7 @@ export default {
     { title: "HTML(5)", score: 4 },
     { title: "Agile", score: 4 },
     { title: "Python(3)", score: 3 },
+    { title: "LESS", score: 3 },
     { title: "C/C++", score: 3 }
   ],
   languages: [
