@@ -208,6 +208,13 @@ class App extends React.Component {
                   <p>22</p>
                   <strong>Location:</strong>
                   <p>Sydney</p>
+
+                  <strong>Visa status:</strong>
+                  <p>
+                    Student Visa (500). Have the authorisation to work full time
+                    in Australia during the vacation or work part time during
+                    semester.
+                  </p>
                   <br />
 
                   <div className='row d-flex justify-content-between'>
