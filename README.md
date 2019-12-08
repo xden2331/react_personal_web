@@ -6,7 +6,7 @@ My interactive resume.
 
 ## TODO
 
-- [] Collapse navbar when displaying on small devices
+- [ ] Collapse navbar when displaying on small devices
 
 
 
